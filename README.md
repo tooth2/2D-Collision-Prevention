@@ -47,12 +47,12 @@ To evaluate, the number of keypoints, the number of matched keypoints,and proces
 
 ### Recommendation for detector/descriptor combinations
 Based on above data, The TOP3 detector / descriptor combinations are recommended as the best choice for detecting keypoints on vehicles as follows:
-* 
-* 
-* 
+* (FAST, BRIEF)
+* (FAST, ORB)
+* (FAST, SIFT)
 
 ### Rerefence 
-[Harris Detector](https://docs.opencv.org/3.4/d4/d7d/tutorial_harris_detector.html)
-[Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
-[Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
+* [Harris Detector](https://docs.opencv.org/3.4/d4/d7d/tutorial_harris_detector.html)
+* [Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
+* [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
 
