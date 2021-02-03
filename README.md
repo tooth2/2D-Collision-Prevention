@@ -1,8 +1,7 @@
 # 2D-Collision-Prevention
-Camera based 2D feature tracking to prevent collision on the road using Open CV 2D Features framework. This implementation is comprised of main three components - Detectors, Descriptors and Matching algorithm. By using Open CV , the implemented 7 detectors and 6 descriptors including binary string based ones and hog family one are as follows: 
+To implment a Camera based 2D feature tracking to prevent collision system on the road , this project is to find the best detector/descriptor combination by explorering all the possible pairs of 7 detectors and 6 descriptors along with several way of matching algorithms using Open CV 2D Features framework. This implementation is comprised of three main components - Detectors, Descriptors and Matching algorithm. 
 * Detectors: "SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"
 * Desctiptors:  "BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"
-
 As for matching descriptor algorithm, two types of mathcing algorithm (Brute force way and FLNN alogorithm) along with (nearest neighbor and k's nearest neighbor algorithm) are implemented
 
 ## Implementation Approach
@@ -39,7 +38,7 @@ Applied the K-Nearest-Neighbor matching algorithm to implement the descriptor di
 
 ## Performance Evaluation 
 To evaluate, the number of keypoints, the number of matched keypoints,and processing time are counted,computed and logged in the following CSV files. 
-* keypoints_file.csv : A CSV file stores the number of keypoints on the preceding vehicle for all 10 images and the distribution of their neighborhood size for all 7 detectors
+* keypoints_file.csv: A CSV file stores the number of keypoints on the preceding vehicle for all 10 images and the distribution of their neighborhood size for all 7 detectors
 * matched_keypoints.csv: A CSV File stores the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors that meets following conditions (35 combos). In the matching step, the BF approach is used with the descriptor distance ratio set to 0.8.
     * AKAZE descriptros only works with AKAZE detectors.
     * ORB descriptros does not work with SIFT detectors.
