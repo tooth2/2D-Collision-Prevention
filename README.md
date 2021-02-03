@@ -1,5 +1,7 @@
 # 2D-Collision-Prevention
-Camera based 2D feature tracking to prevent collision on the road using Open CV 2D Features framework. This implementation is comprised of main three components - Detectors, Descriptors and Matching algorithm. By using Open CV , the implemented 7 detectors including binary dectors and hog family detectors are as follows: 
+Camera based 2D feature tracking to prevent collision on the road using Open CV 2D Features framework. This implementation is comprised of main three components - Detectors, Descriptors and Matching algorithm. By using Open CV , the implemented 7 detectors and 6 descriptors including binary string based ones and hog family one are as follows: 
+* Detectors: "SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"
+* Desctiptors:  "BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"
 And 6 descriptors are implemented along with 2 type of matchers (Brute force way and FLNN alogorithm) , (nearest neighbor and k's nearest neighbor algorithm) 
 
 ## Implementation Approach
