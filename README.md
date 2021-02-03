@@ -2,7 +2,8 @@
 Camera based 2D feature tracking to prevent collision on the road using Open CV 2D Features framework. This implementation is comprised of main three components - Detectors, Descriptors and Matching algorithm. By using Open CV , the implemented 7 detectors and 6 descriptors including binary string based ones and hog family one are as follows: 
 * Detectors: "SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"
 * Desctiptors:  "BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"
-And 6 descriptors are implemented along with 2 type of matchers (Brute force way and FLNN alogorithm) , (nearest neighbor and k's nearest neighbor algorithm) 
+
+As for matching descriptor algorithm, two types of mathcing algorithm (Brute force way and FLNN alogorithm) along with (nearest neighbor and k's nearest neighbor algorithm) are implemented
 
 ## Implementation Approach
 
@@ -29,7 +30,7 @@ Implemented six different descriptors BRISK, BRIEF, ORB, FREAK, AKAZE and SIFT a
 
 Implemented Brute Force and FLANN matching algorithm as well as nearest neighbor and k-nearest neighbor selection which are selectable using the respective strings `matcherType` and `selectorType` . In order to use these parameters, set the string to use Brute-Force matching combined with Nearest-Neighbor selection or k-nn selection and use FLANN instead of Brute-Force matching
 * `matcherType` : "MAT_BF" , "MAT_FLANN" 
-    * As for Binary Matcher ("MAT_BF"), since `SIFT` is HOA fmaily descriptors, so that `cv::NORM_L2` is used and the others are binary string based descriptors so that `cv::NORM_HAMMING` is used for as distance measurement parameter `normType`. Detailes are guided in the [OpenCV documentation] (https://docs.opencv.org/master/dc/dc3/tutorial_py_matcher.html)
+    * As for Binary Matcher ("MAT_BF"), since `SIFT` is HOA fmaily descriptors, so that `cv::NORM_L2` is used and the others are binary string based descriptors so that `cv::NORM_HAMMING` is used for as distance measurement parameter `normType`. For Binary matching, the details are described in the [OpenCV documentation](https://docs.opencv.org/master/dc/dc3/tutorial_py_matcher.html)
     * As for FLANN matching algorithm ("MAT_FLANN"), conversion binary descriptors to floating point is added due to a bug in current OpenCV version
 * `selectorType`: "SEL_NN", "SEL_KNN"
 
@@ -37,18 +38,12 @@ Implemented Brute Force and FLANN matching algorithm as well as nearest neighbor
 Applied the K-Nearest-Neighbor matching algorithm to implement the descriptor distance ratio test, which looks at the ratio of best vs. kth best match to decide whether to keep an associated pair of keypoints and outputs the number of removed bad keypoint matches. Here, distance ratio is set to `minDescDistRatio=0.8`.
 
 ## Performance Evaluation 
-
-### keypoints_file.csv 
-A CSV file stores the number of keypoints on the preceding vehicle for all 10 images and the distribution of their neighborhood size for all 7 detectors
-
-### matched_keypoints.csv
-A CSV File stores the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors that meets following conditions (35 combos). In the matching step, the BF approach is used with the descriptor distance ratio set to 0.8.
-* AKAZE descriptros only works with AKAZE detectors.
-* ORB descriptros does not work with SIFT detectors.
-
-
-### log_time.csv
-A CSV File logs the time it takes for keypoint detection and descriptor extraction. 
+To evaluate, the number of keypoints, the number of matched keypoints,and processing time are counted,computed and logged in the following CSV files. 
+* keypoints_file.csv : A CSV file stores the number of keypoints on the preceding vehicle for all 10 images and the distribution of their neighborhood size for all 7 detectors
+* matched_keypoints.csv: A CSV File stores the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors that meets following conditions (35 combos). In the matching step, the BF approach is used with the descriptor distance ratio set to 0.8.
+    * AKAZE descriptros only works with AKAZE detectors.
+    * ORB descriptros does not work with SIFT detectors.
+* log_time.csv: A CSV File logs the time it takes for keypoint detection and descriptor extraction. 
 
 ### Recommendation for detector/descriptor combinations
 Based on above data, The TOP3 detector / descriptor combinations are recommended as the best choice for detecting keypoints on vehicles as follows:
