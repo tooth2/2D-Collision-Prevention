@@ -11,8 +11,7 @@ In case of processing a large image sequence with several thousand images and Li
 A selection of seven detectors, which are Shi-Tomasi, HARRIS, FAST, BRISK, ORB, AKAZE, and SIFT, is implemented. All these detectors are selectable by setting the string `detectorType` to the respective name. Based on detail implementation pattern, three functions can be explicitely called. These fuctions are declared in the header file regarding to its call parameters.
 * Shi-Tomasi detector : `void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)`
 * Harris conor detection : `void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)`
-* Other detectors : `void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std::string detectorType, bool bVis)`
-As for modern detector, both Binary family detectors (FAST, BRISK, ORB, AKAZE) and one of HOG Family detector,SIFT by using OpenCV are implemented and these 5 different detectors are selectable by passing a string parameter accordingly.
+* Other detectors : `void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std::string detectorType, bool bVis)` implemented the rest firve dectors including FAST, BRISL, ORB, AKAZE and SIFT selectable by setting the string parameter `detectorType`.
 
 ### 3. Keypoint Removal
 As for a collision detection system, keypoints on the preceding vehicle are of special interest. Therefore, in order to exploere a combination of dector/descriptor pair, it's better to discard feature points that are not located on the preceding vehicle and only focussing on targeted area(but just for the evaluation to pick the best combo) So I removed all keypoints outside of a pre-defined rectangle (Box parameters are : cx = 535, cy = 180, w = 180, h = 150) in which the coordinates are based on the `cv::Rect`datatype in OpenCV and only stored the keypoints within the rectangle for further processing by checking whether the pre-defined rectangle(`cv::Rect`) contains(`contains`) the keypoints or not. 
@@ -20,7 +19,7 @@ As for a collision detection system, keypoints on the preceding vehicle are of s
 ### 4. Keypoint Descriptors
 > `void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descriptors, string descriptorType)`
 
-Implemented six different descriptors BRISK, BRIEF, ORB, FREAK, AKAZE and SIFT and made them selectable by setting a string 'descriptorType' accordingly. SIFT(SURF also) were patented, and thus could not be freely used in a commercial context. As for an older version of the OpenCV installed, use `#include <opencv2/xfeatures2d/nonfree.hpp>` in order to use both algorithms. In versions of the OpenCV >= 4.3, SIFT and SURF can be used from `#include <opencv2/xfeatures2d.hpp>`
+Implemented six different descriptors BRISK, BRIEF, ORB, FREAK, AKAZE and SIFT and made them selectable by setting a string 'descriptorType' accordingly. As for these descriptors, both Binary string based descriptors (BRIEF, FAST, BRISK, ORB, AKAZE) and one of HOG Family detector, SIFT are implemented and these different detectors are selectable by passing a string parameter accordingly. SIFT(SURF also) is patented, and thus could not be freely used in a commercial context. As for an older version of the OpenCV installed, use `#include <opencv2/xfeatures2d/nonfree.hpp>` in order to use both algorithms. In versions of the OpenCV >= 4.3, SIFT and SURF can be used from `#include <opencv2/xfeatures2d.hpp>`
 
 ### 5. Descriptor Matching
 > `void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::KeyPoint> &kPtsRef, cv::Mat &descSource, cv::Mat &descRef,
