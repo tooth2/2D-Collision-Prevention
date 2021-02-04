@@ -14,6 +14,8 @@ A selection of seven detectors, which are Shi-Tomasi, HARRIS, FAST, BRISK, ORB, 
 * Shi-Tomasi detector : `void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)`
 * Harris conor detection : `void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)`
 * Other detectors : `void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std::string detectorType, bool bVis)` implemented the rest firve dectors including FAST, BRISL, ORB, AKAZE and SIFT selectable by setting the string parameter `detectorType`.
+Below image is one of detected keypoints image using SIFT detector.
+![SIFT Detector](SIFT_keypoints.png)
 
 ### 3. Keypoint Removal
 As for a collision detection system, keypoints on the preceding vehicle are of special interest. Therefore, in order to exploere a combination of dector/descriptor pair, it's better to discard feature points that are not located on the preceding vehicle and only focussing on targeted area(but just for the evaluation to pick the best combo) So I removed all keypoints outside of a pre-defined rectangle (Box parameters are : cx = 535, cy = 180, w = 180, h = 150) in which the coordinates are based on the `cv::Rect`datatype in OpenCV and only stored the keypoints within the rectangle for further processing by checking whether the pre-defined rectangle(`cv::Rect`) contains(`contains`) the keypoints or not. 
@@ -54,7 +56,6 @@ Conted the number of keypoints on the preceding vehicle for all 10 images and lo
 | SIFT | 124 ~ 159 | 16x16 neighbourhood | 
 
 the distribution of their neighborhood size for all 7 detectors are referenced from parameter and open CV documentation for each algorithm 
-![SIFT Detector](SIFT_keypoints.png)
 
 2. matched_keypoints.csv: A CSV File stores the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors. In the matching step, the Brute-Force(BF) matching algorithm is used with the descriptor distance ratio set to 0.8.
 3. log_time.csv: A CSV File logs the time it takes for keypoint detection and descriptor extraction. 
@@ -68,6 +69,7 @@ Based on above data, The TOP3 detector / descriptor combinations are recommended
 |(FAST, ORB)  |  229 points | 9.54ms | 
 |(FAST, SIFT)|  309points. | 57.74ms|
 
+Below image is a matched keypoint image using FAST detector and SIFT descriptor pair.
 ![FAST detector/ SIFT descriptor](/FAST-SIFT.png)
 
 ## Dependencies for Runtime Environment
