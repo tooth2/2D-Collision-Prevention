@@ -2,7 +2,7 @@
 To implment a Camera based 2D feature tracking to prevent collision system on the road , this project is to find the best detector/descriptor combination by explorering all the possible pairs of 7 detectors and 6 descriptors along with several way of matching algorithms using Open CV 2D Features framework. This implementation is comprised of three main components - Detectors, Descriptors and Matching algorithm. 
 * Detectors: "SHITOMASI", "HARRIS", "FAST", "BRISK", "ORB", "AKAZE", "SIFT"
 * Desctiptors:  "BRISK", "BRIEF", "ORB", "FREAK", "AKAZE", "SIFT"
-As for matching descriptor algorithm, two types of mathcing algorithm (Brute force way and FLNN alogorithm) along with (nearest neighbor and k's nearest neighbor algorithm) are implemented
+As for matching descriptor algorithm, two types of mathcing algorithm (Brute force way and FLANN, Fast Library for Approximate Nearest Neighbors, alogorithm) along with (nearest neighbor and k-th nearest neighbor matching algorithm) are implemented
 
 ## Implementation Approach
 
