@@ -37,7 +37,7 @@ Implemented Brute Force and FLANN matching algorithm as well as nearest neighbor
 * `selectorType`: "SEL_NN", "SEL_KNN"
 * Regarding to possible combinations, ORB descriptors with SIFT detectors caused  `out of memory error` so that 35 combinations are explored. Conditions are as follows: 
     * AKAZE descriptros only works with AKAZE detectors.
-    * ORB descriptros does not work with SIFT detectors.
+    * ORB descriptors does not work with SIFT detectors. (note that ORB can't take in negative values) 
 ### 6. Descriptor Distance Ratio
 Applied the K-Nearest-Neighbor matching algorithm to implement the descriptor distance ratio test, which looks at the ratio of best vs. kth best match to decide whether to keep an associated pair of keypoints and outputs the number of removed bad keypoint matches. Here, distance ratio is set to `minDescDistRatio=0.8`.
 
@@ -86,4 +86,7 @@ Below image is a matched keypoints image from two continous camera stream images
 * [Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
 * [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
 * [SIFT Detector](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)
+* [SIFT intro](https://medium.com/data-breach/introduction-to-sift-scale-invariant-feature-transform-65d7f3a72d40)
+* [Detector and matching] (https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
+* [ORB](https://medium.com/data-breach/introduction-to-orb-oriented-fast-and-rotated-brief-4220e8ec40cf)
 
