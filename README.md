@@ -87,6 +87,6 @@ Below image is a matched keypoints image from two continous camera stream images
 * [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
 * [SIFT Detector](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)
 * [SIFT intro](https://medium.com/data-breach/introduction-to-sift-scale-invariant-feature-transform-65d7f3a72d40)
-* [Detector and matching] (https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
+* [Detector and matching](https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
 * [ORB](https://medium.com/data-breach/introduction-to-orb-oriented-fast-and-rotated-brief-4220e8ec40cf)
 
