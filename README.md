@@ -42,6 +42,7 @@ Applied the K-Nearest-Neighbor matching algorithm to implement the descriptor di
 ## Performance Evaluation - # of Keypoints 
 1. To evaluate, the number of keypoints, the number of matched keypoints,and processing time are counted,computed and logged in the CSV files. 
 Conted the number of keypoints on the preceding vehicle for all 10 images and logged in a CSV file. 
+
 | detectorType | # of keypoints on the preceding vehicle | neighborhood size  | 
 |-------------------|-----------------------| ------- | 
 | SHITOMASI| 111 ~ 125| block size =4 , maxOverlap = 0 |
@@ -59,6 +60,7 @@ the distribution of their neighborhood size for all 7 detectors are referenced f
 
 ### Recommendation for detector/descriptor combinations
 Based on above data, The TOP3 detector / descriptor combinations are recommended as the best choice for detecting keypoints on vehicles as follows:
+
 |Detector/Descriptor|# of matched keypoints | execution time(ms)|
 |-------------------|-----------------------|-------------------|
 |(FAST, BRIEF) | 242 points | 9.56ms|
