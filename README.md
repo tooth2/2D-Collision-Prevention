@@ -39,7 +39,7 @@ Implemented Brute Force and FLANN matching algorithm as well as nearest neighbor
 ### 6. Descriptor Distance Ratio
 Applied the K-Nearest-Neighbor matching algorithm to implement the descriptor distance ratio test, which looks at the ratio of best vs. kth best match to decide whether to keep an associated pair of keypoints and outputs the number of removed bad keypoint matches. Here, distance ratio is set to `minDescDistRatio=0.8`.
 
-## Performance Evaluation - # of Keypoints 
+### Performance Evaluation - # of Keypoints 
 1. To evaluate, the number of keypoints, the number of matched keypoints,and processing time are counted,computed and logged in the CSV files. 
 Conted the number of keypoints on the preceding vehicle for all 10 images and logged in a CSV file. 
 
@@ -54,6 +54,7 @@ Conted the number of keypoints on the preceding vehicle for all 10 images and lo
 | SIFT | 124 ~ 159 | 16x16 neighbourhood | 
 
 the distribution of their neighborhood size for all 7 detectors are referenced from parameter and open CV documentation for each algorithm 
+![SIFT Detector](SIFT_keypoints.png)
 
 2. matched_keypoints.csv: A CSV File stores the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors. In the matching step, the Brute-Force(BF) matching algorithm is used with the descriptor distance ratio set to 0.8.
 3. log_time.csv: A CSV File logs the time it takes for keypoint detection and descriptor extraction. 
@@ -66,6 +67,8 @@ Based on above data, The TOP3 detector / descriptor combinations are recommended
 |(FAST, BRIEF) | 242 points | 9.56ms|
 |(FAST, ORB)  |  229 points | 9.54ms | 
 |(FAST, SIFT)|  309points. | 57.74ms|
+
+![FAST detector/ SIFT descriptor](/FAST-SIFT.png)
 
 ## Dependencies for Runtime Environment
 * cmake >= 2.8
@@ -80,4 +83,5 @@ Based on above data, The TOP3 detector / descriptor combinations are recommended
 * [Harris Detector](https://docs.opencv.org/3.4/d4/d7d/tutorial_harris_detector.html)
 * [Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
 * [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
+* [SIFT Detector](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)
 
