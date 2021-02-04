@@ -45,12 +45,12 @@ Conted the number of keypoints on the preceding vehicle for all 10 images and lo
 | detectorType | # of keypoints on the preceding vehicle | neighborhood size  | 
 |-------------------|-----------------------| ------- | 
 | SHITOMASI| 111 ~ 125| block size =4 , maxOverlap = 0 |
-| HARRIS  |  14~43 | blockSize = 2, neighbor points size = 6, maxOverlap = 0| 
-| FAST |  386~427| 9 points (default type)| 
-| BRISK | 254~297 | octaves = 3 (default)|
-| ORB   | 92~130 | WTA_K =2 (default)| 
-| AKAZE | 155~179| nOctave = 4, nOctaveLayers = 4(default)|
-| SIFT | 124~159 | 16x16 neighbourhood | 
+| HARRIS  |  14 ~ 43 | blockSize = 2, neighbor points size = 6, maxOverlap = 0| 
+| FAST |  386 ~ 427| 9 points (default type)| 
+| BRISK | 254 ~ 297 | octaves = 3 (default)|
+| ORB   | 92 ~ 130 | WTA_K =2 (default)| 
+| AKAZE | 155 ~ 179| nOctave = 4, nOctaveLayers = 4(default)|
+| SIFT | 124 ~ 159 | 16x16 neighbourhood | 
 
 the distribution of their neighborhood size for all 7 detectors are referenced from parameter and open CV documentation for each algorithm 
 
