@@ -69,7 +69,7 @@ Based on above data, The TOP3 detector / descriptor combinations are recommended
 |(FAST, ORB)  |  229 points | 9.54ms | 
 |(FAST, SIFT)|  309points. | 57.74ms|
 
-Below image is a matched keypoint image using FAST detector and SIFT descriptor pair.
+Below image is a matched keypoints image from two continous camera stream images using FAST detector and SIFT descriptor pair.
 ![FAST detector/ SIFT descriptor](/FAST-SIFT.png)
 
 ## Dependencies for Runtime Environment
