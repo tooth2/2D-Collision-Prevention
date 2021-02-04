@@ -42,15 +42,15 @@ Applied the K-Nearest-Neighbor matching algorithm to implement the descriptor di
 ## Performance Evaluation - # of Keypoints 
 1. To evaluate, the number of keypoints, the number of matched keypoints,and processing time are counted,computed and logged in the CSV files. 
 Conted the number of keypoints on the preceding vehicle for all 10 images and logged in a CSV file. 
-|detectorType| # of keypoints on the preceding vehicle | neighborhood size  | 
-|-------------------|-----------------------| -------| 
+| detectorType | # of keypoints on the preceding vehicle | neighborhood size  | 
+|-------------------|-----------------------| ------- | 
 | SHITOMASI| 111 ~ 125| block size =4 , maxOverlap = 0 |
-|HARRIS  |  14~43 | blockSize = 2, neighbor points size = 6, maxOverlap = 0| 
+| HARRIS  |  14~43 | blockSize = 2, neighbor points size = 6, maxOverlap = 0| 
 | FAST |  386~427| 9 points (default type)| 
 | BRISK | 254~297 | octaves = 3 (default)|
-|ORB| 92~130 | WTA_K =2 (default)| 
-|AKAZE| 155~179| nOctave = 4, nOctaveLayers = 4(default)|
-|SIFT| 124~159| 16x16 neighbourhood | 
+| ORB   | 92~130 | WTA_K =2 (default)| 
+| AKAZE | 155~179| nOctave = 4, nOctaveLayers = 4(default)|
+| SIFT | 124~159 | 16x16 neighbourhood | 
 
 the distribution of their neighborhood size for all 7 detectors are referenced from parameter and open CV documentation for each algorithm 
 
@@ -63,7 +63,16 @@ Based on above data, The TOP3 detector / descriptor combinations are recommended
 |-------------------|-----------------------|-------------------|
 |(FAST, BRIEF) | 242 points | 9.56ms|
 |(FAST, ORB)  |  229 points | 9.54ms | 
-|(FST, SIFT)|  309points. | 57.74ms|
+|(FAST, SIFT)|  309points. | 57.74ms|
+
+## Dependencies for Runtime Environment
+* cmake >= 2.8
+  * [how to install](https://cmake.org/install/)
+* make >= 4.1 (Linux, Mac), 3.81 (Windows)
+* OpenCV >= 4.1
+  * This must be compiled from source using the `-D OPENCV_ENABLE_NONFREE=ON` cmake flag for testing the SIFT and SURF detectors.
+  * [OpenCV 4.1.0 source code](https://github.com/opencv/opencv/tree/4.1.0)
+* gcc/g++ >= 5.4
 
 ### Rerefence 
 * [Harris Detector](https://docs.opencv.org/3.4/d4/d7d/tutorial_harris_detector.html)
